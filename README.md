@@ -27,6 +27,7 @@
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
 - [if statments](#if-statments)
+- [for statement](#for-statements)
 
 ***
 
@@ -443,4 +444,32 @@ output:
 2 is even
 5 is odd
 10 is even
+```
+
+### for statements
+if we wanted to loop through 1 through 10 and add them all up.  
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func firstloop() {
+	sum := 0
+	for i := 1; i <= 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
+}
+func main() {
+	firstloop()
+}
+
+```
+output:
+
+```
+55
 ```
