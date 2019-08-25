@@ -17,7 +17,7 @@
 
 ***
 
-### [hello world] (#hello world)
+### [hello world]
 [1]: abc
 ```
 package main
