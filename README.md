@@ -13,11 +13,11 @@
 ***
 
 ### table of contents
-* [hello world][1]
+* hello world
 
 ***
 
-### hello world
+### [hello world] (#hello world)
 [1]: abc
 ```
 package main
@@ -28,5 +28,4 @@ func main() {
 }
 ```
 ***
-
 
