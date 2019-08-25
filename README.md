@@ -123,7 +123,7 @@ Most of the text editors recommended have built in gofmt tools that will do this
 
 ***
 
-### golang documenation
+### golang documentation
 golang documentation can be found [here.](https://golang.org/pkg/)
 
 if you have a slow internet or no internet at all you can still view all of golang website/documentation.  This command will run a local web server with the same website you see at golang.org
