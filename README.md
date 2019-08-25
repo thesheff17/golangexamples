@@ -161,7 +161,7 @@ func main() {
 	/*
 
 		example of comments spanning multiple lines.
-		this starts with a forward slach and a star.
+		this starts with a forward slash and a *.
 		once you are done you can stop comments using * forward slash
 
 	*/
