@@ -170,3 +170,10 @@ func main() {
 
 }
 ```
+output:
+
+```
+Hello World
+Welcome to golang!
+script completed
+```
