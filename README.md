@@ -16,6 +16,8 @@
 - [prerequisites](#prerequisites)
 - [hello world](#hello-world)
 - [time package](#time-package)
+- [gofmt command](#gofmt-command)
+- [golang documentation](#golang-documentation)
 
 ***
 
@@ -102,3 +104,34 @@ start of script.
 sleeping 3 seconds...
 sleep time completed.
 ```
+***
+### gofmt command
+go supports auto formatting of your code.  This is supper useful if you have ever used another programming language like python.  More information can be found [here.](https://golang.org/cmd/gofmt/)
+
+to see what gofmt will do to your file do and it will display your code formatted.
+
+```
+gofmt ./main.go
+```
+
+if you want it to overwrite your file with the changes do:
+
+```
+gofmt -w ./main.go
+```
+Most of the text editors recommended have built in gofmt tools that will do this automatically when saving the file.
+
+***
+
+### golang documenation
+golang documentation can be found [here.](https://golang.org/pkg/)
+
+if you have a slow internet or no internet at all you can still view all of golang website/documentation.  This command will run a local web server with the same website you see at golang.org
+
+```
+godoc -http=:6060
+```
+
+Once you run this command you will be able to visit: [http://localhost:6060](http://localhost:6060)
+
+****
