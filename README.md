@@ -13,11 +13,11 @@
 ***
 
 ### table of contents
-* [hello world](#link1)
+- [hello world](#hello-world)
 
 ***
 
-### [hello world]
+### hello world
 [1]: abc
 ```
 package main
