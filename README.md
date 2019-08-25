@@ -26,6 +26,7 @@
 - [function return types](#function-return-types)
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
+- [if statments](#if-statments)
 
 ***
 
@@ -411,3 +412,35 @@ The area of the circle is 50.240000
 The area of the circle is 78.500000
 ```
 
+### if statments
+an example of a function that will tell you if the integer is odd or even:
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func oddevencheck(value int) {
+
+	if value%2 == 0 {
+		fmt.Printf("%d is even\n", value)
+	} else {
+		fmt.Printf("%d is odd\n", value)
+	}
+}
+
+func main() {
+	oddevencheck(2)
+	oddevencheck(5)
+	oddevencheck(10)
+}
+```
+output:
+
+```
+2 is even
+5 is odd
+10 is even
+```
