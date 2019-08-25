@@ -25,6 +25,7 @@
 - [first function](#first-function)
 - [function return types](#function-return-types)
 - [int examples](#int-examples)
+- [float64 examples](#float64-examples)
 
 ***
 
