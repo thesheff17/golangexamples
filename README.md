@@ -18,6 +18,7 @@
 - [time package](#time-package)
 - [gofmt command](#gofmt-command)
 - [golang documentation](#golang-documentation)
+- [golang comments](#golang-comments)
 
 ***
 
@@ -123,7 +124,7 @@ Most of the text editors recommended have built in gofmt tools that will do this
 
 ***
 
-### golang documentation
+### golang documenation
 golang documentation can be found [here.](https://golang.org/pkg/)
 
 if you have a slow internet or no internet at all you can still view all of golang website/documentation.  This command will run a local web server with the same website you see at golang.org
@@ -135,3 +136,37 @@ godoc -http=:6060
 Once you run this command you will be able to visit: [http://localhost:6060](http://localhost:6060)
 
 ****
+
+### golang comments
+comments are texted inside a script that help explain complex code.  The compiler will skip these lines and provide context to the code you are running:
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// comments start with two forward slashes
+
+	// example of using fmt.Println package
+	fmt.Println("Hello World")
+
+	// you can also do inline comments
+	fmt.Println("Welcome to golang!") // prints Welcome to golang!
+
+	// you can also do big blocks of comments using the below:
+
+	/*
+
+		example of comments spanning multiple lines.
+		this starts with a forward slach and a star.
+		once you are done you can stop comments using * forward slash
+
+	*/
+
+	fmt.Println("script completed")
+
+}
+```
