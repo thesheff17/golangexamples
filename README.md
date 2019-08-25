@@ -29,6 +29,7 @@
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
 - [for statements](#for-statements)
+- [check current user running program](#check-current-user-running-program)
 
 ***
 
@@ -510,4 +511,52 @@ output:
 
 ```
 55
+```
+
+### check current user running program
+lots of times I need a golang script to run as root.  Here is an example of how to check which user is running the script.  This also shows you how `user.Current()` returns two values.  the usr and the err.  I also check to see if there are any err before trying to use usr.  This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
+
+```
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"os/user"
+)
+
+func checkUser() {
+	usr, err := user.Current()
+
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
+
+	if usr.Username != "root" {
+		fmt.Println("Sorry this script needs root access.")
+		fmt.Println("Exiting...")
+		os.Exit(2)
+	} else {
+		fmt.Println("You are running this script as root. congrats!")
+	}
+
+}
+
+func main() {
+	checkUser()
+}
+```
+output: 
+
+```
+Sorry this script needs root access.
+```
+
+second output: This will also work with `sudo` 
+
+```
+You are running this script as root. congrats!
+
 ```
