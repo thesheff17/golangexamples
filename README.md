@@ -28,6 +28,7 @@
 - [float64 examples](#float64-examples)
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
+- [bool data type](#bool-data-type)
 - [for statements](#for-statements)
 - [check current user running program](#check-current-user-running-program)
 
@@ -484,6 +485,41 @@ it it cold!
 it is comfortable
 it is comfortable
 ``` 
+
+### bool data type
+bool has two values.  false or true.  here is another varient of our is this number even check.
+
+```
+package main
+
+import "fmt"
+
+func iseven(value int) bool {
+	if value%2 == 0 {
+		return true
+	} else {
+		return false
+	}
+}
+func main() {
+
+	// example of calling a func
+	// without == check it is going to check if true
+	if iseven(4) { // checks if boolean is True
+		fmt.Println("4 is a even number")
+	}
+
+	if iseven(5) == false {
+		fmt.Println("5 is not an even number")
+	}
+}
+```
+output:
+
+```
+4 is a even number
+5 is not an even number
+```
 
 ### for statements
 if we wanted to loop through 1 through 10 and add them all up.  
