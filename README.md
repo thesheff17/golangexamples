@@ -27,7 +27,8 @@
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
 - [if statments](#if-statments)
-- [for statement](#for-statements)
+- [if else if statements](#if-else-if-statements)
+- [for statements](#for-statements)
 
 ***
 
@@ -86,7 +87,7 @@ To run on windows:
 golang.exe
 ```
 
-You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs)  This way you don't have to install anything and test basic golang examples.  Be careful not to put any sesitive data into this site though.  
+You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs)  This way you don't have to install anything and test basic golang examples.  Be careful not to put any sensitive data into this site though.  
 ***
 
 ### time package
@@ -445,6 +446,43 @@ output:
 5 is odd
 10 is even
 ```
+
+### if else if statements
+here is an example of providing more logic with an else if statement.  Here will check a temperature and tell you weather it is comfortable, cold, or hot:
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func temp(value int) {
+	if value > 80 {
+		fmt.Println("it is hot!")
+	} else if value > 65 {
+		fmt.Println("it is comfortable")
+	} else {
+		fmt.Println("it it cold!")
+	}
+}
+
+func main() {
+	temp(100)
+	temp(50)
+	temp(70)
+	temp(80)
+}
+
+```
+output:
+
+```
+it is hot!
+it it cold!
+it is comfortable
+it is comfortable
+``` 
 
 ### for statements
 if we wanted to loop through 1 through 10 and add them all up.  
