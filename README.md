@@ -31,6 +31,9 @@
 - [bool data type](#bool-data-type)
 - [for statements](#for-statements)
 - [check current user running program](#check-current-user-running-program)
+- [arrays](#arrays)
+- [slices](#slices)
+- [maps](#maps)
 
 ***
 
@@ -595,4 +598,152 @@ second output: This will also work with `sudo`
 ```
 You are running this script as root. congrats!
 
+```
+
+### arrays
+arrays are a collection of data types in a single object.  You must know the length of the array that you want to create. Here is an example of an array of 3 slots.  Arrays start at location 0.  If you try to assign a value to the array and it doesn't have enough slots it will throw an error `invalid array index 3 (out of bounds for 3-element array)`
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var myarray [3]string
+	myarray[0] = "Dan"
+	myarray[1] = "Bob"
+	myarray[2] = "Steve"
+
+	for slot, value := range myarray {
+		fmt.Printf("The slot is: %d The value is: %s\n", slot, value)
+	}
+
+}
+```
+
+output:
+
+```
+The slot is: 0 The value is: Dan
+The slot is: 1 The value is: Bob
+The slot is: 2 The value is: Steve
+```
+
+### slices
+slices are like arrays but have dynamic lengths.  This way you can add any number of elements to the slice without actually knowing the actual length.
+
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	// we created a slice that starts with 3 slots
+	s := make([]string, 3)
+
+	s[0] = "Dan"
+	s[1] = "Bob"
+	s[2] = "Steve"
+
+	// check the length
+	fmt.Println("len:", len(s))
+
+	// check values
+	fmt.Println(s)
+
+	// now let append another value
+	s = append(s, "Laura")
+
+	// check the length
+	fmt.Println("len:", len(s))
+
+	// check values
+	fmt.Println(s)
+
+	// append mutiple values
+	s = append(s, "Devin", "Carl")
+
+	// check the length
+	fmt.Println("len:", len(s))
+
+	// check values
+	fmt.Println(s)
+
+	// slice support a subset of the slice
+	// prints the 3rd and 4th slots.  Remember the slice starts at 0
+	fmt.Println(s[2:4])
+
+	//slices also support multi dementional
+	twoD := make([][]int, 3)
+	for i := 0; i < 3; i++ {
+		innerLen := i + 1
+		twoD[i] = make([]int, innerLen)
+		for j := 0; j < innerLen; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", twoD)
+}
+```
+
+output:
+
+```
+len: 3
+[Dan Bob Steve]
+len: 4
+[Dan Bob Steve Laura]
+len: 6
+[Dan Bob Steve Laura Devin Carl]
+[Steve Laura]
+2d:  [[0] [1 2] [2 3 4]]
+```
+
+### maps
+maps are key:value pairs similar to dictionaries in python.  These have super fast lookup performance and support any data type as the key:
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	// example of creating a map
+	m := make(map[string]float64)
+	
+	// for example if we want to keep track of bank account values.
+	 m["Dan"] = 2.0
+	 m["Steve"] = 100.0
+	 m["Bob"] = 75.0
+	
+	 for k, v := range m {
+        fmt.Println("k:", k, "v:", v)
+    }
+
+	fmt.Println(len(m))
+	
+	m["Chris"] = 1000.0
+	
+	// access value directory
+	fmt.Println(m["Chris"])
+}
+```
+
+output:
+
+```
+k: Dan v: 2
+k: Steve v: 100
+k: Bob v: 75
+3
+1000
 ```
