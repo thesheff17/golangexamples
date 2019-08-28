@@ -59,7 +59,7 @@ if you have the money I would recommend some paid text editors/IDE:
 - [GoLand](https://www.jetbrains.com/go/)
 
 ### hello world
-[1]: abc
+
 ```
 package main
 import "fmt"
@@ -92,11 +92,13 @@ To run on windows:
 golang.exe
 ```
 
-You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs)  This way you don't have to install anything and test basic golang examples.  Be careful not to put any sensitive data into this site though.  
+You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs)  This way you don't have to install anything and test basic golang examples.  Be careful not to put any sensitive data into this site though.  I will add `playground` links as much as possible to source code so you can also run it.  Not all examples will run in the playground.
 ***
 
 ### time package
 This example will show you how to sleep a certain amount of time.
+
+[playground](https://play.golang.org/p/M9H5iYfisQx)
  
 ```
 package main
@@ -157,6 +159,8 @@ Once you run this command you will be able to visit: [http://localhost:6060](htt
 ### golang comments
 comments are texted inside a script that help explain complex code.  The compiler will skip these lines and provide context to the code you are running:
 
+[playground](https://play.golang.org/p/eGhmex1Pm1i)
+
 ```
 package main
 
@@ -198,6 +202,8 @@ script completed
 ### assign values to variables and declaring variables
 variables will store data you need to use in more then one place.  For example if you needed your program to say `hello world` twice this is how you would do it. `hello` is assigned "hello world". 
 
+[playground](https://play.golang.org/p/or6C7BfhBb-)
+
 ```
 package main
 
@@ -211,6 +217,8 @@ func main() {
 ```
 
 If you don't know the value you want but know you need a variable later on you can also declare it.  The next section will go into data types and explain what a `string` is.
+
+[playground](https://play.golang.org/p/7v-Lskfnp6C)
 
 ```
 package main
@@ -251,6 +259,8 @@ golang has a number of basic data types.  The most common ones used are int, str
 
 This is the ability to output multiple variables in a single statement. the `%s` will be replaced with the variables you pass to it:
 
+[playground](https://play.golang.org/p/IHB3KZGsE8r)
+
 ```
 package main
 
@@ -273,6 +283,8 @@ We use `\n` to do a line break.
 
 ### first function
 a function is a collecton of code that you can re use many times.  You can call it from other parts of your code to do things.  This will help you organize your code better.  functions can take any number of parameters.  We will talk about return in the next section.
+
+[playground](https://play.golang.org/p/MFk-3vkY_m6)
 
 ```
 package main
@@ -304,6 +316,8 @@ Welcome to golang Bob Sheffner
 
 There is 1 thing to type less things if yo know your data types are the same.  This will assume both fname and lname are both `string` types.
 
+[playground](https://play.golang.org/p/ekLHwDeZYTc)
+
 ```
 package main
 
@@ -327,6 +341,8 @@ func main() {
 
 ### function return types
 functions can return data types as well.  A variation of the example above:
+
+[playground](https://play.golang.org/p/kJ_Qp3_TUBP)
 
 ```
 package main
@@ -367,6 +383,8 @@ Welcome to golang Steve Smith
 ### int examples
 for this example we will write a function that calculates the perimeter of a triangle.  Basically `a + b + c = perimeter` use `%d` in `fmt.Printf` in order to convert from int to string. 
 
+[playground](https://play.golang.org/p/mbKrBtoPFSJ)
+
 ```
 package main
 
@@ -393,6 +411,8 @@ The perimeter is 30
 
 ### float64 examples
 in this example we will calculate the area of a circle:
+
+[playground](https://play.golang.org/p/p4U6lUx1tcB)
 
 ```
 package main
@@ -421,6 +441,8 @@ The area of the circle is 78.500000
 
 ### if statments
 an example of a function that will tell you if the integer is odd or even:
+
+[playground](https://play.golang.org/p/jtRLSZ2f3il)
 
 ```
 package main
@@ -454,6 +476,8 @@ output:
 
 ### if else if statements
 here is an example of providing more logic with an else if statement.  Here will check a temperature and tell you weather it is comfortable, cold, or hot:
+
+[playground](https://play.golang.org/p/z5NJT7MYRv2)
 
 ```
 package main
@@ -492,6 +516,8 @@ it is comfortable
 ### bool data type
 bool has two values.  false or true.  here is another varient of our is this number even check.
 
+[playground](https://play.golang.org/p/XCaWmd8pgr0)
+
 ```
 package main
 
@@ -527,6 +553,8 @@ output:
 ### for statements
 if we wanted to loop through 1 through 10 and add them all up.  
 
+[playground](https://play.golang.org/p/9E2ncHlxrgK)
+
 ```
 package main
 
@@ -554,6 +582,8 @@ output:
 
 ### check current user running program
 lots of times I need a golang script to run as root.  Here is an example of how to check which user is running the script.  This also shows you how `user.Current()` returns two values.  the usr and the err.  I also check to see if there are any err before trying to use usr.  This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
+
+[playground](https://play.golang.org/p/Wy6_PcEaH9g)
 
 ```
 package main
@@ -603,6 +633,8 @@ You are running this script as root. congrats!
 ### arrays
 arrays are a collection of data types in a single object.  You must know the length of the array that you want to create. Here is an example of an array of 3 slots.  Arrays start at location 0.  If you try to assign a value to the array and it doesn't have enough slots it will throw an error `invalid array index 3 (out of bounds for 3-element array)`
 
+[playground](https://play.golang.org/p/b_UWknSmSqQ)
+
 ```
 package main
 
@@ -633,6 +665,8 @@ The slot is: 2 The value is: Steve
 
 ### slices
 slices are like arrays but have dynamic lengths.  This way you can add any number of elements to the slice without actually knowing the actual length.
+
+[playground](https://play.golang.org/p/PkFbiNfppMZ)
 
 
 ```
@@ -707,6 +741,8 @@ len: 6
 
 ### maps
 maps are key:value pairs similar to dictionaries in python.  These have super fast lookup performance and support any data type as the key:
+
+[playground](https://play.golang.org/p/7_sLAXp9roP)
 
 ```
 package main
