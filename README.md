@@ -35,7 +35,7 @@
 - [slices](#slices)
 - [maps](#maps)
 - [pointers](#pointers)
-- [calling a terminal command on linux](#calling a terminal command on linux)
+- [calling a terminal command on linux](#calling-a-terminal-command-on-linux)
 
 ***
 
