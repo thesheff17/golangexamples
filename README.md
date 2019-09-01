@@ -34,6 +34,8 @@
 - [arrays](#arrays)
 - [slices](#slices)
 - [maps](#maps)
+- [pointers](#pointers)
+- [calling a terminal command on linux](#calling a terminal command on linux)
 
 ***
 
@@ -782,4 +784,103 @@ k: Steve v: 100
 k: Bob v: 75
 3
 1000
+```
+
+### pointers
+golang supports pointers. A pointer is a refrence in memory to the address of the value. Use `&` to refrence the memory address of variables.  Use `*` as a pointer to to that memory address:
+	
+[playground](https://play.golang.org/p/3zHblebQfca)
+
+```
+package main
+
+import "fmt"
+
+func main() {
+
+	i := 42
+
+	// we now create a pointer to i memory address
+	p := &i
+
+	// lets check the value of i
+	fmt.Println("The value of i is:", i)
+
+	// lets check the value of p and make sure it is the same value
+	fmt.Println("The value of p is:", *p)
+
+	// lets print the memory address of p
+	fmt.Println("The memory address of p is:", p)
+	fmt.Println("The memory address of i is:", &i)
+	fmt.Println()
+
+	// now lets create new int
+	// and reuse our pointer to point to a only
+	a := 10
+	p = &a
+
+	// i and a now match
+	fmt.Println("The value of p is:", *p)
+	fmt.Println("The value of a is:", a)
+
+	// check memory addresses of both values
+	fmt.Println("The memory address of p is:", p)
+	fmt.Println("The memory address of a is:", &a)
+
+}
+```
+
+Of course when you run this your memory addresses will be different. Output:
+
+```
+The value of i is: 42
+The value of p is: 42
+The memory address of p is: 0xc000094000
+The memory address of i is: 0xc000094000
+
+The value of p is: 10
+The value of a is: 10
+The memory address of p is: 0xc000094018
+The memory address of a is: 0xc000094018
+```
+
+### calling a terminal command on linux
+This will show you how to use the os package to call a terminal command `ls`.  This is one of the examples that will not work on the playground since we are going to be calling linux commands.  Lets create a couple files so when we call our script we will see these.
+
+```
+touch abc.txt
+touch hello.txt
+touch world.txt
+```
+
+```
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"log"
+	"os/exec"
+)
+
+func main() {
+	cmd := exec.Command("ls")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("The value of out is:", out.String())
+
+}
+```
+output:
+
+```
+The value of out is: 3
+abc.txt
+hello.txt
+main.go
+world.txt
 ```
