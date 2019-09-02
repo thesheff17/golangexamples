@@ -354,7 +354,7 @@ func main() {
 }
 ```
 ### functions used in external packages
-You will notice that `fmt.Println` and `time.Second` both have upper case on the functoin name.  This is how golang support private/public functions.  If you declare an upercase func name: `func Hello()` you can use this function in other scripts.  I will go into more details on how to write your own imports/packages later in the tutorial.
+You will notice that `fmt.Println` and `time.Second` both have upper case on the function name.  This is how golang support private/public functions.  If you declare an uppercase func name: `func Hello()` you can use this function in other scripts.  I will go into more details on how to write your own imports/packages later in the tutorial but this is why you see uppercase.
 
 ### function return types
 functions can return data types as well.  A variation of the example above:
