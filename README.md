@@ -27,6 +27,7 @@
 - [function return types](#function-return-types)
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
+- [example of default values of variables](#example-of-default-values-of-variables)
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
 - [bool data type](#bool-data-type)
@@ -454,6 +455,30 @@ output:
 ```
 The area of the circle is 50.240000
 The area of the circle is 78.500000
+```
+
+### example of default values of variables
+if you declare a variable with no value golang will assign the default value.  Here is an example of different types we used above.
+
+[playground](https://play.golang.org/p/r9pa_UdbpkC)
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	var i int
+	var f float64
+	var b bool
+	var s string
+	fmt.Printf("%v %v %v %q\n", i, f, b, s)
+}
+```
+output:
+
+```
+0 0 false ""
 ```
 
 ### if statments
