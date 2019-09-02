@@ -23,6 +23,7 @@
 - [golang basic data types](#golang-basic-data-types)
 - [concatenation](#concatenation)
 - [first function](#first-function)
+- [functions used in external packages](#functions-used-in-external-packages)
 - [function return types](#function-return-types)
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
@@ -202,25 +203,9 @@ script completed
 ```
 
 ### assign values to variables and declaring variables
-variables will store data you need to use in more then one place.  For example if you needed your program to say `hello world` twice this is how you would do it. `hello` is assigned "hello world". 
+variables will store data you need to use in more then one place.  For example if you needed your program to say `hello world` twice this is how you would do it. `hello` is assigned "hello world". There are 4 ways to declare variables in golang:
 
-[playground](https://play.golang.org/p/or6C7BfhBb-)
-
-```
-package main
-
-import "fmt"
-
-func main() {
-        hello := "hello world"
-        fmt.Println(hello)
-        fmt.Println(hello)
-}
-```
-
-If you don't know the value you want but know you need a variable later on you can also declare it.  The next section will go into data types and explain what a `string` is.
-
-[playground](https://play.golang.org/p/7v-Lskfnp6C)
+[playground](https://play.golang.org/p/YtE6UWyGW9H)
 
 ```
 package main
@@ -228,24 +213,50 @@ package main
 import "fmt"
 
 func main() {
-        var name string
-
-        fmt.Println("hello world")
-
-        name = "Dan" //asign "Dan" to the name variable
-        fmt.Println("hello " + name)
-        name = "Bob"
-        fmt.Println("hello " + name)
+	
+	// creates an empty integer variabled called e
+	var e int
+	fmt.Println(e)
+	
+	// change the value to 5
+	e = 5
+	fmt.Println(e)
+	fmt.Println()
+	
+	// declare a variable and assign it a value
+	var a = "hello"
+    	fmt.Println(a)
+	fmt.Println(a)
+	fmt.Println()
+	
+	// shorthand of the above
+	hello := "hello world"
+	fmt.Println(hello)
+	fmt.Println(hello)
+	fmt.Println()
+	
+	// multiple assignments in 1 line
+	 var fname, lname string = "Dan", "Sheffner"
+    	fmt.Println("Welcome to golang", fname, lname)
+	fname = "Bob"
+	fmt.Println("Welcome to golang", fname, lname)
+	
 }
-
 ```
-
 output:
 
 ```
+0
+5
+
+hello
+hello
+
 hello world
-hello Dan
-hello Bob
+hello world
+
+Welcome to golang Dan Sheffner
+Welcome to golang Bob Sheffner
 ```
 
 ### golang basic data types
@@ -259,9 +270,9 @@ golang has a number of basic data types.  The most common ones used are int, str
 
 ### concatenation
 
-This is the ability to output multiple variables in a single statement. the `%s` will be replaced with the variables you pass to it:
+This gives you the ability to output multiple variables in a single statement in any order. the `%s` will be replaced with the variables you pass to it.  Printf is used for formatting strings in the order you want.  Println will print a new line and concatenate by adding spaces between all variables.
 
-[playground](https://play.golang.org/p/IHB3KZGsE8r)
+[playground](https://play.golang.org/p/VTLiVpBalQW)
 
 ```
 package main
@@ -272,12 +283,14 @@ func main() {
         fname := "Dan"
         lname := "Sheffner"
 
+        fmt.Printf("%s %s welcomes you to golang!\n", fname, lname)
         fmt.Printf("Welcome to golang %s %s\n", fname, lname)
 }
 ```
 output:
 
 ```
+Dan Sheffner welcomes you to golang!
 Welcome to golang Dan Sheffner
 ```
 
@@ -340,6 +353,8 @@ func main() {
         hello(fname2, lname2)
 }
 ```
+### functions used in external packages
+You will notice that `fmt.Println` and `time.Second` both have upper case on the functoin name.  This is how golang support private/public functions.  If you declare an upercase func name: `func Hello()` you can use this function in other scripts.  I will go into more details on how to write your own imports/packages later in the tutorial.
 
 ### function return types
 functions can return data types as well.  A variation of the example above:
