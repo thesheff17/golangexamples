@@ -34,6 +34,7 @@
 - [if else if statements](#if-else-if-statements)
 - [for statements](#for-statements)
 - [named return values](#named-return-values)
+- [constants](#constants)
 - [check current user running program](#check-current-user-running-program)
 - [arrays](#arrays)
 - [slices](#slices)
@@ -707,6 +708,36 @@ output:
 The new X coordinate is: 60 The new Y coordinate is: 50
 ```
 
+### constants
+constants `const` are variables that never change. Constants can be used either inside `func()` or even outside `func()` which constrols the scope of the variable where it is accessible.  For example if we need my name in multiple func I can do this:
+
+[playground](https://play.golang.org/p/MIGNvZiQ6st)
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+const name = "Dan Sheffner"
+
+func sayName() {
+	fmt.Println("Welcome to golang", name)
+}
+
+func main() {
+	sayName()
+	fmt.Println("The program is completed", name)
+}
+```
+
+output:
+
+```
+Welcome to golang Dan Sheffner
+The program is completed Dan Sheffner
+```
 
 ### check current user running program
 lots of times I need a golang script to run as root.  Here is an example of how to check which user is running the script.  This also shows you how `user.Current()` returns two values.  the usr and the err.  I also check to see if there are any err before trying to use usr.  This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
