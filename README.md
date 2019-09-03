@@ -33,6 +33,7 @@
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
 - [for statements](#for-statements)
+- [named return values](#named-return-values)
 - [check current user running program](#check-current-user-running-program)
 - [arrays](#arrays)
 - [slices](#slices)
@@ -665,6 +666,41 @@ output:
 ```
 55
 ```
+
+### named return values
+you can have just `return` at the end of your func which will automatically return the variables you define on the func line.  These are sometimes called a `naked` return
+
+[playground](https://play.golang.org/p/26W5YGltTXV)
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+// this function will add 10 to an x, y cordinate you pass it
+// this is also called a naked return
+func addToCoordinates(a, b int) (x, y int) {
+	x = a + 10
+	y = b + 10
+	return
+}
+
+func main() {
+
+	// we pass it 2 coordinates and we get two values back
+	x, y := addToCoordinates(50, 40)
+	fmt.Printf("The new X coordinate is: %v The new Y coordinate is: %v", x, y)
+}
+``` 
+
+output:
+
+```
+The new X coordinate is: 60 The new Y coordinate is: 50
+```
+
 
 ### check current user running program
 lots of times I need a golang script to run as root.  Here is an example of how to check which user is running the script.  This also shows you how `user.Current()` returns two values.  the usr and the err.  I also check to see if there are any err before trying to use usr.  This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
