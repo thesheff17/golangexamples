@@ -499,7 +499,7 @@ output:
 ### example of default values of variables
 if you declare a variable with no value golang will assign the default value.  Here is an example of different types we used above.
 
-[playground](https://play.golang.org/p/r9pa_UdbpkC)
+[playground](https://play.golang.org/p/xHZpM9Adde7)
 
 ```
 package main
@@ -511,13 +511,19 @@ func main() {
 	var f float64
 	var b bool
 	var s string
-	fmt.Printf("%v %v %v %q\n", i, f, b, s)
+	fmt.Printf("The default value of int is: %v\n", i)
+	fmt.Printf("The default value of float64: %v\n", f)
+	fmt.Printf("The default value of bool is: %v\n", b)
+	fmt.Printf("The default value of string is: %q\n", s)
 }
 ```
 output:
 
 ```
-0 0 false ""
+The default value of int is: 0
+The default value of float64: 0
+The default value of bool is: false
+The default value of string is: ""
 ```
 
 ### converting between data types
