@@ -28,9 +28,10 @@
 - [int examples](#int-examples)
 - [float64 examples](#float64-examples)
 - [example of default values of variables](#example-of-default-values-of-variables)
+- [bool data type](#bool-data-type)
+- [converting between data types](#converting-between-data-types)
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
-- [bool data type](#bool-data-type)
 - [for statements](#for-statements)
 - [check current user running program](#check-current-user-running-program)
 - [arrays](#arrays)
@@ -457,6 +458,43 @@ The area of the circle is 50.240000
 The area of the circle is 78.500000
 ```
 
+### bool data type
+bool has two values.  false or true.  here is another varient of our is this number even check.
+
+[playground](https://play.golang.org/p/XCaWmd8pgr0)
+
+```
+package main
+
+import "fmt"
+
+func iseven(value int) bool {
+	if value%2 == 0 {
+		return true
+	} else {
+		return false
+	}
+}
+func main() {
+
+	// example of calling a func
+	// without == check it is going to check if true
+	if iseven(4) { // checks if boolean is True
+		fmt.Println("4 is a even number")
+	}
+
+	if iseven(5) == false {
+		fmt.Println("5 is not an even number")
+	}
+}
+```
+output:
+
+```
+4 is a even number
+5 is not an even number
+```
+
 ### example of default values of variables
 if you declare a variable with no value golang will assign the default value.  Here is an example of different types we used above.
 
@@ -479,6 +517,49 @@ output:
 
 ```
 0 0 false ""
+```
+
+### converting between data types
+golang supports conversion between data types. Many times you will get data in as a string and need to convert to an integer(int) or a float to do math on it.  This is very simple to do in allot of programming languages. In this example I will show you how to convert `string` to `float64`
+
+[playground](https://play.golang.org/p/rjJE9RFHtpy)
+
+```
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"log"
+	"os"
+)
+
+func addBankValue(value1 string, value2 float64) float64 {
+	f, err := strconv.ParseFloat(value1, 64)
+	
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
+	
+	total := value2 + f
+	return total
+}
+	
+func main() {
+	
+	x := "5.50"
+	
+	// an example of formatting two decimal places.
+	fmt.Printf("Your new total is: %.2f", addBankValue(x, 100.00))
+	
+}
+```
+
+output:
+
+```
+Your new total is: 105.50
 ```
 
 ### if statments
@@ -554,43 +635,6 @@ it it cold!
 it is comfortable
 it is comfortable
 ``` 
-
-### bool data type
-bool has two values.  false or true.  here is another varient of our is this number even check.
-
-[playground](https://play.golang.org/p/XCaWmd8pgr0)
-
-```
-package main
-
-import "fmt"
-
-func iseven(value int) bool {
-	if value%2 == 0 {
-		return true
-	} else {
-		return false
-	}
-}
-func main() {
-
-	// example of calling a func
-	// without == check it is going to check if true
-	if iseven(4) { // checks if boolean is True
-		fmt.Println("4 is a even number")
-	}
-
-	if iseven(5) == false {
-		fmt.Println("5 is not an even number")
-	}
-}
-```
-output:
-
-```
-4 is a even number
-5 is not an even number
-```
 
 ### for statements
 if we wanted to loop through 1 through 10 and add them all up.  
