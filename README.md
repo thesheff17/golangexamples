@@ -33,6 +33,7 @@
 - [if statments](#if-statments)
 - [if else if statements](#if-else-if-statements)
 - [for statements](#for-statements)
+- [infinate loop or break on value](#infinate-loop-or-break-on-value)
 - [named return values](#named-return-values)
 - [constants](#constants)
 - [check current user running program](#check-current-user-running-program)
@@ -672,6 +673,67 @@ output:
 
 ```
 55
+```
+
+### infinate loop or break on value
+Sometimes you want to loop forever.  Basically this is a program that will never end until you `ctrl-c` out of it. Many services are written like this.  Another area this is useful is to loop foverever but then `break` on some condition.  Also note the sleep time increases as x goes up.  You are also able to do `x++` to represent add `1` to `x` on each loop.
+
+[playground](https://play.golang.org/p/A6_vD_DLcCg)
+
+```
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	x := 1
+	for {
+		fmt.Println("sleeping for: ", x)
+		time.Sleep(time.Duration(x) * time.Millisecond)
+		x++
+		if x > 30 {
+			break
+		}
+	}
+}
+```
+
+output:
+
+```
+sleeping for:  1
+sleeping for:  2
+sleeping for:  3
+sleeping for:  4
+sleeping for:  5
+sleeping for:  6
+sleeping for:  7
+sleeping for:  8
+sleeping for:  9
+sleeping for:  10
+sleeping for:  11
+sleeping for:  12
+sleeping for:  13
+sleeping for:  14
+sleeping for:  15
+sleeping for:  16
+sleeping for:  17
+sleeping for:  18
+sleeping for:  19
+sleeping for:  20
+sleeping for:  21
+sleeping for:  22
+sleeping for:  23
+sleeping for:  24
+sleeping for:  25
+sleeping for:  26
+sleeping for:  27
+sleeping for:  28
+sleeping for:  29
+sleeping for:  30
 ```
 
 ### named return values
