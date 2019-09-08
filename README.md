@@ -42,6 +42,7 @@
 - [maps](#maps)
 - [pointers](#pointers)
 - [calling a terminal command on linux](#calling-a-terminal-command-on-linux)
+- [struct](#struct)
 
 ***
 
@@ -1102,4 +1103,78 @@ abc.txt
 hello.txt
 main.go
 world.txt
+```
+
+### struct
+in golang you can group data types together to create a struct.  Structs can also be nested with other struct.  For example if you were creating a service for veterinary.  You can create a struct that hold the pets name.  Then you can create a tested struct to hold information about cats specifically.  Here is a generic example:
+
+[playground](https://play.golang.org/p/MFAVMmj_8Px)
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+type Cat struct {
+	Animal
+	Owner          string
+	Lifeexpectancy int
+}
+type Animal struct {
+	Age  int
+	Name string
+}
+
+func (a *Animal) Move() {
+	fmt.Println("Animal moved")
+}
+
+func (a *Animal) SayName() {
+	fmt.Printf("Animal name: %s\n", a.Name)
+}
+
+func (a *Cat) Info() {
+	fmt.Printf("Animal age: %d Pet owner name: %s\n", a.Age, a.Owner)
+}
+
+func (a *Cat) Averagelife() {
+	fmt.Printf("The average life of a cat is: %d.\n", a.Lifeexpectancy)
+}
+
+func main() {
+	d := &Cat{}
+	d.Age = 3
+	d.Name = "Dan"
+	d.Owner = "Bob"
+	d.Lifeexpectancy = 15
+
+	d.Move()
+	d.SayName()
+	d.Info()
+	d.Averagelife()
+
+	fmt.Println()
+
+	// example on how to declare data on a nested struct in 1 line
+	c := &Cat{Animal{10, "Comet"}, "Steve", 15}
+	c.SayName()
+	c.Info()
+	c.Averagelife()
+
+}
+```
+
+output:
+
+```
+Animal moved
+Animal name: Dan
+Animal age: 3 Pet owner name: Bob
+The average life of a cat is: 15.
+
+Animal name: Comet
+Animal age: 10 Pet owner name: Steve
+The average life of a cat is: 15.
 ```
