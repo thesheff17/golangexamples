@@ -1106,9 +1106,9 @@ world.txt
 ```
 
 ### struct
-in golang you can group data types together to create a struct.  Structs can also be nested with other struct.  For example if you were creating a service for veterinary.  You can create a struct that hold the pets name.  Then you can create a tested struct to hold information about cats specifically.  Here is a generic example:
+in golang you can group data types together to create a struct.  Structs can also be nested with other struct.  For example if you were creating a service for veterinary.  You can create a struct that hold the pets name.  Then you can create a tested struct to hold information about cats specifically.  Golang is also smart enough to not have to use `&` of variables.    Here is a generic example:
 
-[playground](https://play.golang.org/p/MFAVMmj_8Px)
+[playground](https://play.golang.org/p/HuPP0Lz_inh)
 
 ```
 package main
@@ -1144,7 +1144,7 @@ func (a *Cat) Averagelife() {
 }
 
 func main() {
-	d := &Cat{}
+	d := Cat{}
 	d.Age = 3
 	d.Name = "Dan"
 	d.Owner = "Bob"
@@ -1158,7 +1158,7 @@ func main() {
 	fmt.Println()
 
 	// example on how to declare data on a nested struct in 1 line
-	c := &Cat{Animal{10, "Comet"}, "Steve", 15}
+	c := Cat{Animal{10, "Comet"}, "Steve", 15}
 	c.SayName()
 	c.Info()
 	c.Averagelife()
