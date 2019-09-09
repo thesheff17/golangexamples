@@ -43,7 +43,7 @@
 - [pointers](#pointers)
 - [calling a terminal command on linux](#calling-a-terminal-command-on-linux)
 - [struct](#struct)
-- [slice of sructs](#slice-of-structs)
+- [slice of sructs](#slice-of-sructs)
 
 ***
 
