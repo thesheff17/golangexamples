@@ -1178,3 +1178,58 @@ Animal name: Comet
 Animal age: 10 Pet owner name: Steve
 The average life of a cat is: 15.
 ```
+
+### slice of sructs
+Many times you will need to create many structs that contain an unkown amount of structs.  The easiest way to accomplish this is a slice of structs.  Be careful using append of slices.  Appending a single element takes constant amortized time. More information can be found [wikipedia amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) and [wikipedia constant time](https://en.wikipedia.org/wiki/Time_complexity#Constant_time).
+
+[playground](https://play.golang.org/p/ncGzPQXCMzO)
+
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	type pets struct {
+		Name    string
+		Age     int
+		Owner   string
+		Pettype string
+	}
+
+	store := []pets{
+		{"comet", 7, "Dan", "dog"},
+		{"roo", 10, "Chris", "dog"},
+		{"fluffy", 4, "Laura", "cat"},
+	}
+
+	for _, each := range store {
+		fmt.Printf("Welcome to the pet shop %s.  Your %s is %d years old and the owner is %s.\n", each.Name, each.Pettype, each.Age, each.Owner)
+	}
+	fmt.Println()
+
+	// now lets add another onen to our slice
+	// note this is
+	store = append(store, pets{"keystone", 2, "Dan", "bird"})
+
+	for _, each := range store {
+		fmt.Printf("Welcome to the pet shop %s.  Your %s is %d years old and the owner is %s.\n", each.Name, each.Pettype, each.Age, each.Owner)
+	}
+
+}
+```
+
+output:
+
+```
+Welcome to the pet shop comet.  Your dog is 7 years old and the owner is Dan.
+Welcome to the pet shop roo.  Your dog is 10 years old and the owner is Chris.
+Welcome to the pet shop fluffy.  Your cat is 4 years old and the owner is Laura.
+
+Welcome to the pet shop comet.  Your dog is 7 years old and the owner is Dan.
+Welcome to the pet shop roo.  Your dog is 10 years old and the owner is Chris.
+Welcome to the pet shop fluffy.  Your cat is 4 years old and the owner is Laura.
+Welcome to the pet shop keystone.  Your bird is 2 years old and the owner is Dan.
+```
