@@ -44,6 +44,8 @@
 - [calling a terminal command on linux](#calling-a-terminal-command-on-linux)
 - [struct](#struct)
 - [slice of sructs](#slice-of-sructs)
+- [goroutine](#goroutine)
+- [wait for all goroutines to finish](#wait-for-all-goroutines-to-finish)
 
 ***
 
@@ -1234,3 +1236,101 @@ Welcome to the pet shop roo.  Your dog is 10 years old and the owner is Chris.
 Welcome to the pet shop fluffy.  Your cat is 4 years old and the owner is Laura.
 Welcome to the pet shop keystone.  Your bird is 2 years old and the owner is Dan.
 ```
+
+### goroutine
+A goroutine is a lightweight thread managed by the go runtime.  Any func you can add `go` in front of the call and it will call this in a go thread.  We will sleep at the end so the output finishes.  This is only used for demo purposes.  In the next example I will show how to wait for all goroutine to finish.  You can see I call dostuff(7) but this func takes the longest to finish so its output is last.  Even though you call dostuff(3) last since it is ran in a goroutine it will finish first.  
+
+[playground](https://play.golang.org/p/7a6KzSLjiqf)
+
+```
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func dostuff(a int) {
+	time.Sleep(time.Duration(a) * time.Second)
+	fmt.Printf("finished running dostuff.  Slept %d seconds.\n", a)
+}
+
+func main() {
+	fmt.Println("Starting golang program...")
+
+	go dostuff(7)
+	go dostuff(5)
+	go dostuff(3)
+
+	// just for example we will sleep so we can see the output
+	time.Sleep(time.Duration(15) * time.Second)
+}
+```
+output:
+
+```
+Starting golang program...
+finished running dostuff.  Slept 3 seconds.
+finished running dostuff.  Slept 5 seconds.
+finished running dostuff.  Slept 7 seconds.
+```
+
+### wait for all goroutines to finish
+goroutine support a sync.WaitGroup which will wait for all goroutines to finish.  This is very useful when you want to make sure ALL goroutines finish.
+[playground](https://play.golang.org/p/MC9K9e5zJ92)
+
+```
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func dostuff(wg *sync.WaitGroup, id int) {
+	defer wg.Done()
+
+	fmt.Printf("dostuff %v: Started\n", id)
+	time.Sleep(time.Second)
+	fmt.Printf("dostuff %v: Finished\n", id)
+}
+
+func main() {
+	fmt.Println("started program...")
+	var wg sync.WaitGroup
+
+	for i := 0; i < 5; i++ {
+		fmt.Println("calling goroutine:", i)
+		wg.Add(1)
+		go dostuff(&wg, i)
+	}
+
+	fmt.Println("waiting for goroutine to finish...")
+	wg.Wait()
+	fmt.Println("program completed.")
+}
+```
+output:
+
+```
+started program...
+calling goroutine: 0
+calling goroutine: 1
+calling goroutine: 2
+calling goroutine: 3
+calling goroutine: 4
+waiting for goroutine to finish...
+dostuff 4: Started
+dostuff 0: Started
+dostuff 1: Started
+dostuff 2: Started
+dostuff 3: Started
+dostuff 0: Finished
+dostuff 4: Finished
+dostuff 3: Finished
+dostuff 2: Finished
+dostuff 1: Finished
+program completed.
+```
+
