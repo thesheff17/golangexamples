@@ -6,13 +6,14 @@
 
 ## more information can be found at [golang](https://golang.org) website.
 
-### I will add tons of examples that progressively get more complicated.  I will also store examples of features of the standard library in these examples.  If you see any issues with anything please make a pull request.
+### I will add tons of examples that progressively get more complicated. I will also store examples of features of the standard library in these examples. If you see any issues with anything please make a pull request.
 
 ### each example will be seperated by a line seperator like below:
 
-***
+---
 
 ### table of contents
+
 - [prerequisites](#prerequisites)
 - [hello world](#hello-world)
 - [time package](#time-package)
@@ -47,10 +48,11 @@
 - [goroutine](#goroutine)
 - [wait for all goroutines to finish](#wait-for-all-goroutines-to-finish)
 
-***
+---
 
 ### prerequisites
-The first thing you need to do is install go.  This is a little different per operating system.  First download your perspective file from [here.](https://golang.org/dl/) Follow the installation instruction [here.](https://golang.org/doc/install) 
+
+The first thing you need to do is install go. This is a little different per operating system. First download your perspective file from [here.](https://golang.org/dl/) Follow the installation instruction [here.](https://golang.org/doc/install)
 
 You should be able to check which version of go you are version by running:
 
@@ -59,7 +61,7 @@ go version
 go version go1.12.9 darwin/amd64
 ```
 
-You will also need a decent text editor/IDE.  There are a number of free ones:
+You will also need a decent text editor/IDE. There are a number of free ones:
 
 - [vscode](https://code.visualstudio.com/)
 - [atom](https://atom.io/)
@@ -82,15 +84,16 @@ func main() {
 ```
 
 #### to run this script
+
 Save the above code snipet as main.go in a directory you created. I usually make a directory called `golang`
 
 to compile your script:
 
-````
+```
 go build
-````
+```
 
-This will produce a binary for the operating system you are on. Mac/linux will create a binary with the name of the directory you are in.  The directory I'm in was `golang`
+This will produce a binary for the operating system you are on. Mac/linux will create a binary with the name of the directory you are in. The directory I'm in was `golang`
 
 To run on linux/mac:
 
@@ -104,14 +107,16 @@ To run on windows:
 golang.exe
 ```
 
-You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs)  This way you don't have to install anything and test basic golang examples.  Be careful not to put any sensitive data into this site though.  I will add `playground` links as much as possible to source code so you can also run it.  Not all examples will run in the playground.
-***
+You can also run this code on the [go playground.](https://play.golang.org/p/NrLk9EUk4Hs) This way you don't have to install anything and test basic golang examples. Be careful not to put any sensitive data into this site though. I will add `playground` links as much as possible to source code so you can also run it. Not all examples will run in the playground.
+
+---
 
 ### time package
+
 This example will show you how to sleep a certain amount of time.
 
 [playground](https://play.golang.org/p/M9H5iYfisQx)
- 
+
 ```
 package main
 
@@ -136,9 +141,12 @@ start of script.
 sleeping 3 seconds...
 sleep time completed.
 ```
-***
+
+---
+
 ### gofmt command
-go supports auto formatting of your code.  This is supper useful if you have ever used another programming language like python.  More information can be found [here.](https://golang.org/cmd/gofmt/)
+
+go supports auto formatting of your code. This is supper useful if you have ever used another programming language like python. More information can be found [here.](https://golang.org/cmd/gofmt/)
 
 to see what gofmt will do to your file do and it will display your code formatted.
 
@@ -151,14 +159,16 @@ if you want it to overwrite your file with the changes do:
 ```
 gofmt -w ./main.go
 ```
+
 Most of the text editors recommended have built in gofmt tools that will do this automatically when saving the file.
 
-***
+---
 
 ### golang documenation
+
 golang documentation can be found [here.](https://golang.org/pkg/)
 
-if you have a slow internet or no internet at all you can still view all of golang website/documentation.  This command will run a local web server with the same website you see at golang.org
+if you have a slow internet or no internet at all you can still view all of golang website/documentation. This command will run a local web server with the same website you see at golang.org
 
 ```
 godoc -http=:6060
@@ -166,10 +176,11 @@ godoc -http=:6060
 
 Once you run this command you will be able to visit: [http://localhost:6060](http://localhost:6060)
 
-****
+---
 
 ### golang comments
-comments are texted inside a script that help explain complex code.  The compiler will skip these lines and provide context to the code you are running:
+
+comments are texted inside a script that help explain complex code. The compiler will skip these lines and provide context to the code you are running:
 
 [playground](https://play.golang.org/p/eGhmex1Pm1i)
 
@@ -203,6 +214,7 @@ func main() {
 
 }
 ```
+
 output:
 
 ```
@@ -211,8 +223,11 @@ Welcome to golang!
 script completed
 ```
 
+---
+
 ### assign values to variables and declaring variables
-variables will store data you need to use in more then one place.  For example if you needed your program to say `hello world` twice this is how you would do it. `hello` is assigned "hello world". There are 4 ways to declare variables in golang:
+
+variables will store data you need to use in more then one place. For example if you needed your program to say `hello world` twice this is how you would do it. `hello` is assigned "hello world". There are 4 ways to declare variables in golang:
 
 [playground](https://play.golang.org/p/YtE6UWyGW9H)
 
@@ -222,36 +237,37 @@ package main
 import "fmt"
 
 func main() {
-	
+
 	// creates an empty integer variabled called e
 	var e int
 	fmt.Println(e)
-	
+
 	// change the value to 5
 	e = 5
 	fmt.Println(e)
 	fmt.Println()
-	
+
 	// declare a variable and assign it a value
 	var a = "hello"
     	fmt.Println(a)
 	fmt.Println(a)
 	fmt.Println()
-	
+
 	// shorthand of the above
 	hello := "hello world"
 	fmt.Println(hello)
 	fmt.Println(hello)
 	fmt.Println()
-	
+
 	// multiple assignments in 1 line
 	 var fname, lname string = "Dan", "Sheffner"
     	fmt.Println("Welcome to golang", fname, lname)
 	fname = "Bob"
 	fmt.Println("Welcome to golang", fname, lname)
-	
+
 }
 ```
+
 output:
 
 ```
@@ -268,18 +284,23 @@ Welcome to golang Dan Sheffner
 Welcome to golang Bob Sheffner
 ```
 
-### golang basic data types
-golang has a number of basic data types.  The most common ones used are int, string, bool, byte, & float64.  There are more then just these but these are the ones I use the most.  More information can be located [here.](https://tour.golang.org/basics/11)  
+---
 
-- string - is traditionally a sequence of characters for example  `hello world` is a string in the above examples.
-- int - (integer for short) a number that is not a dceimal.  Can support negative numbers.  Examples: `5` `-10`
-- bool - represents a boolean value.  It can be `false` or `true` values.
-- byte - is a computer repsrentation of data.  More examples will be used in future examples.
-- float64 - a decimal number.  Can support negative numbers as well example: `1.0` `5.5`
+### golang basic data types
+
+golang has a number of basic data types. The most common ones used are int, string, bool, byte, & float64. There are more then just these but these are the ones I use the most. More information can be located [here.](https://tour.golang.org/basics/11)
+
+- string - is traditionally a sequence of characters for example `hello world` is a string in the above examples.
+- int - (integer for short) a number that is not a dceimal. Can support negative numbers. Examples: `5` `-10`
+- bool - represents a boolean value. It can be `false` or `true` values.
+- byte - is a computer repsrentation of data. More examples will be used in future examples.
+- float64 - a decimal number. Can support negative numbers as well example: `1.0` `5.5`
+
+---
 
 ### concatenation
 
-This gives you the ability to output multiple variables in a single statement in any order. the `%s` will be replaced with the variables you pass to it.  Printf is used for formatting strings in the order you want.  Println will print a new line and concatenate by adding spaces between all variables.
+This gives you the ability to output multiple variables in a single statement in any order. the `%s` will be replaced with the variables you pass to it. Printf is used for formatting strings in the order you want. Println will print a new line and concatenate by adding spaces between all variables.
 
 [playground](https://play.golang.org/p/VTLiVpBalQW)
 
@@ -296,6 +317,7 @@ func main() {
         fmt.Printf("Welcome to golang %s %s\n", fname, lname)
 }
 ```
+
 output:
 
 ```
@@ -303,10 +325,13 @@ Dan Sheffner welcomes you to golang!
 Welcome to golang Dan Sheffner
 ```
 
-We use `\n` to do a line break.  
+We use `\n` to do a line break.
+
+---
 
 ### first function
-a function is a collecton of code that you can re use many times.  You can call it from other parts of your code to do things.  This will help you organize your code better.  functions can take any number of parameters.  We will talk about return in the next section.
+
+a function is a collecton of code that you can re use many times. You can call it from other parts of your code to do things. This will help you organize your code better. functions can take any number of parameters. We will talk about return in the next section.
 
 [playground](https://play.golang.org/p/MFk-3vkY_m6)
 
@@ -338,7 +363,7 @@ Welcome to golang Dan Sheffner
 Welcome to golang Bob Sheffner
 ```
 
-There is 1 thing to type less things if yo know your data types are the same.  This will assume both fname and lname are both `string` types.
+There is 1 thing to type less things if yo know your data types are the same. This will assume both fname and lname are both `string` types.
 
 [playground](https://play.golang.org/p/ekLHwDeZYTc)
 
@@ -362,11 +387,18 @@ func main() {
         hello(fname2, lname2)
 }
 ```
+
+---
+
 ### functions used in external packages
-You will notice that `fmt.Println` and `time.Second` both have upper case on the function name.  This is how golang support private/public functions.  If you declare an uppercase func name: `func Hello()` you can use this function in other scripts.  I will go into more details on how to write your own imports/packages later in the tutorial but this is why you see uppercase.
+
+You will notice that `fmt.Println` and `time.Second` both have upper case on the function name. This is how golang support private/public functions. If you declare an uppercase func name: `func Hello()` you can use this function in other scripts. I will go into more details on how to write your own imports/packages later in the tutorial but this is why you see uppercase.
+
+---
 
 ### function return types
-functions can return data types as well.  A variation of the example above:
+
+functions can return data types as well. A variation of the example above:
 
 [playground](https://play.golang.org/p/kJ_Qp3_TUBP)
 
@@ -405,9 +437,11 @@ Welcome to golang Bob Sheffner
 Welcome to golang Steve Smith
 ```
 
+---
 
 ### int examples
-for this example we will write a function that calculates the perimeter of a triangle.  Basically `a + b + c = perimeter` use `%d` in `fmt.Printf` in order to convert from int to string. 
+
+for this example we will write a function that calculates the perimeter of a triangle. Basically `a + b + c = perimeter` use `%d` in `fmt.Printf` in order to convert from int to string.
 
 [playground](https://play.golang.org/p/mbKrBtoPFSJ)
 
@@ -435,7 +469,10 @@ The perimeter is 15
 The perimeter is 30
 ```
 
+---
+
 ### float64 examples
+
 in this example we will calculate the area of a circle:
 
 [playground](https://play.golang.org/p/p4U6lUx1tcB)
@@ -458,6 +495,7 @@ func main() {
 
 }
 ```
+
 output:
 
 ```
@@ -465,8 +503,11 @@ The area of the circle is 50.240000
 The area of the circle is 78.500000
 ```
 
+---
+
 ### bool data type
-bool has two values.  false or true.  here is another varient of our is this number even check.
+
+bool has two values. false or true. here is another varient of our is this number even check.
 
 [playground](https://play.golang.org/p/XCaWmd8pgr0)
 
@@ -495,6 +536,7 @@ func main() {
 	}
 }
 ```
+
 output:
 
 ```
@@ -502,8 +544,11 @@ output:
 5 is not an even number
 ```
 
+---
+
 ### example of default values of variables
-if you declare a variable with no value golang will assign the default value.  Here is an example of different types we used above.
+
+if you declare a variable with no value golang will assign the default value. Here is an example of different types we used above.
 
 [playground](https://play.golang.org/p/xHZpM9Adde7)
 
@@ -523,6 +568,7 @@ func main() {
 	fmt.Printf("The default value of string is: %q\n", s)
 }
 ```
+
 output:
 
 ```
@@ -532,8 +578,11 @@ The default value of bool is: false
 The default value of string is: ""
 ```
 
+---
+
 ### converting between data types
-golang supports conversion between data types. Many times you will get data in as a string and need to convert to an integer(int) or a float to do math on it.  This is very simple to do in allot of programming languages. In this example I will show you how to convert `string` to `float64`
+
+golang supports conversion between data types. Many times you will get data in as a string and need to convert to an integer(int) or a float to do math on it. This is very simple to do in allot of programming languages. In this example I will show you how to convert `string` to `float64`
 
 [playground](https://play.golang.org/p/rjJE9RFHtpy)
 
@@ -549,23 +598,23 @@ import (
 
 func addBankValue(value1 string, value2 float64) float64 {
 	f, err := strconv.ParseFloat(value1, 64)
-	
+
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
 	}
-	
+
 	total := value2 + f
 	return total
 }
-	
+
 func main() {
-	
+
 	x := "5.50"
-	
+
 	// an example of formatting two decimal places.
 	fmt.Printf("Your new total is: %.2f", addBankValue(x, 100.00))
-	
+
 }
 ```
 
@@ -575,7 +624,10 @@ output:
 Your new total is: 105.50
 ```
 
+---
+
 ### if statments
+
 an example of a function that will tell you if the integer is odd or even:
 
 [playground](https://play.golang.org/p/jtRLSZ2f3il)
@@ -602,6 +654,7 @@ func main() {
 	oddevencheck(10)
 }
 ```
+
 output:
 
 ```
@@ -610,8 +663,11 @@ output:
 10 is even
 ```
 
+---
+
 ### if else if statements
-here is an example of providing more logic with an else if statement.  Here will check a temperature and tell you weather it is comfortable, cold, or hot:
+
+here is an example of providing more logic with an else if statement. Here will check a temperature and tell you weather it is comfortable, cold, or hot:
 
 [playground](https://play.golang.org/p/z5NJT7MYRv2)
 
@@ -640,6 +696,7 @@ func main() {
 }
 
 ```
+
 output:
 
 ```
@@ -647,10 +704,13 @@ it is hot!
 it it cold!
 it is comfortable
 it is comfortable
-``` 
+```
+
+---
 
 ### for statements
-if we wanted to loop through 1 through 10 and add them all up.  
+
+if we wanted to loop through 1 through 10 and add them all up.
 
 [playground](https://play.golang.org/p/9E2ncHlxrgK)
 
@@ -673,14 +733,18 @@ func main() {
 }
 
 ```
+
 output:
 
 ```
 55
 ```
 
+---
+
 ### infinate loop or break on value
-Sometimes you want to loop forever.  Basically this is a program that will never end until you `ctrl-c` out of it. Many services are written like this.  Another area this is useful is to loop foverever but then `break` on some condition.  Also note the sleep time increases as x goes up.  You are also able to do `x++` to represent add `1` to `x` on each loop.
+
+Sometimes you want to loop forever. Basically this is a program that will never end until you `ctrl-c` out of it. Many services are written like this. Another area this is useful is to loop foverever but then `break` on some condition. Also note the sleep time increases as x goes up. You are also able to do `x++` to represent add `1` to `x` on each loop.
 
 [playground](https://play.golang.org/p/A6_vD_DLcCg)
 
@@ -740,8 +804,11 @@ sleeping for:  29
 sleeping for:  30
 ```
 
+---
+
 ### named return values
-you can have just `return` at the end of your func which will automatically return the variables you define on the func line.  These are sometimes called a `naked` return
+
+you can have just `return` at the end of your func which will automatically return the variables you define on the func line. These are sometimes called a `naked` return
 
 [playground](https://play.golang.org/p/26W5YGltTXV)
 
@@ -766,7 +833,7 @@ func main() {
 	x, y := addToCoordinates(50, 40)
 	fmt.Printf("The new X coordinate is: %v The new Y coordinate is: %v", x, y)
 }
-``` 
+```
 
 output:
 
@@ -774,8 +841,11 @@ output:
 The new X coordinate is: 60 The new Y coordinate is: 50
 ```
 
+---
+
 ### constants
-constants `const` are variables that never change. Constants can be used either inside `func()` or even outside `func()` which constrols the scope of the variable where it is accessible.  For example if we need my name in multiple func I can do this:
+
+constants `const` are variables that never change. Constants can be used either inside `func()` or even outside `func()` which constrols the scope of the variable where it is accessible. For example if we need my name in multiple func I can do this:
 
 [playground](https://play.golang.org/p/MIGNvZiQ6st)
 
@@ -805,8 +875,11 @@ Welcome to golang Dan Sheffner
 The program is completed Dan Sheffner
 ```
 
+---
+
 ### check current user running program
-lots of times I need a golang script to run as root.  Here is an example of how to check which user is running the script.  This also shows you how `user.Current()` returns two values.  the usr and the err.  I also check to see if there are any err before trying to use usr.  This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
+
+lots of times I need a golang script to run as root. Here is an example of how to check which user is running the script. This also shows you how `user.Current()` returns two values. the usr and the err. I also check to see if there are any err before trying to use usr. This is typical in many golang programs. More information can be located in the docs [here.](https://golang.org/pkg/os/user/#Current)
 
 [playground](https://play.golang.org/p/Wy6_PcEaH9g)
 
@@ -842,21 +915,25 @@ func main() {
 	checkUser()
 }
 ```
-output: 
+
+output:
 
 ```
 Sorry this script needs root access.
 ```
 
-second output: This will also work with `sudo` 
+second output: This will also work with `sudo`
 
 ```
 You are running this script as root. congrats!
 
 ```
 
+---
+
 ### arrays
-arrays are a collection of data types in a single object.  You must know the length of the array that you want to create. Here is an example of an array of 3 slots.  Arrays start at location 0.  If you try to assign a value to the array and it doesn't have enough slots it will throw an error `invalid array index 3 (out of bounds for 3-element array)`
+
+arrays are a collection of data types in a single object. You must know the length of the array that you want to create. Here is an example of an array of 3 slots. Arrays start at location 0. If you try to assign a value to the array and it doesn't have enough slots it will throw an error `invalid array index 3 (out of bounds for 3-element array)`
 
 [playground](https://play.golang.org/p/b_UWknSmSqQ)
 
@@ -888,11 +965,13 @@ The slot is: 1 The value is: Bob
 The slot is: 2 The value is: Steve
 ```
 
+---
+
 ### slices
-slices are like arrays but have dynamic lengths.  This way you can add any number of elements to the slice without actually knowing the actual length.
+
+slices are like arrays but have dynamic lengths. This way you can add any number of elements to the slice without actually knowing the actual length.
 
 [playground](https://play.golang.org/p/PkFbiNfppMZ)
-
 
 ```
 package main
@@ -964,8 +1043,11 @@ len: 6
 2d:  [[0] [1 2] [2 3 4]]
 ```
 
+---
+
 ### maps
-maps are key:value pairs similar to dictionaries in python.  These have super fast lookup performance and support any data type as the key:
+
+maps are key:value pairs similar to dictionaries in python. These have super fast lookup performance and support any data type as the key:
 
 [playground](https://play.golang.org/p/7_sLAXp9roP)
 
@@ -980,20 +1062,20 @@ func main() {
 
 	// example of creating a map
 	m := make(map[string]float64)
-	
+
 	// for example if we want to keep track of bank account values.
 	 m["Dan"] = 2.0
 	 m["Steve"] = 100.0
 	 m["Bob"] = 75.0
-	
+
 	 for k, v := range m {
         fmt.Println("k:", k, "v:", v)
     }
 
 	fmt.Println(len(m))
-	
+
 	m["Chris"] = 1000.0
-	
+
 	// access value directory
 	fmt.Println(m["Chris"])
 }
@@ -1009,9 +1091,11 @@ k: Bob v: 75
 1000
 ```
 
+---
+
 ### pointers
-golang supports pointers. A pointer is a refrence in memory to the address of the value. Use `&` to refrence the memory address of variables.  Use `*` as a pointer to to that memory address:
-	
+
+golang supports pointers. A pointer is a refrence in memory to the address of the value. Use `&` to refrence the memory address of variables. Use `*` as a pointer to to that memory address:
 [playground](https://play.golang.org/p/3zHblebQfca)
 
 ```
@@ -1067,8 +1151,11 @@ The memory address of p is: 0xc000094018
 The memory address of a is: 0xc000094018
 ```
 
+---
+
 ### calling a terminal command on linux
-This will show you how to use the os package to call a terminal command `ls`.  This is one of the examples that will not work on the playground since we are going to be calling linux commands.  Lets create a couple files so when we call our script we will see these.
+
+This will show you how to use the os package to call a terminal command `ls`. This is one of the examples that will not work on the playground since we are going to be calling linux commands. Lets create a couple files so when we call our script we will see these.
 
 ```
 touch abc.txt
@@ -1098,6 +1185,7 @@ func main() {
 
 }
 ```
+
 output:
 
 ```
@@ -1108,8 +1196,11 @@ main.go
 world.txt
 ```
 
+---
+
 ### struct
-in golang you can group data types together to create a struct.  Structs can also be nested with other struct.  For example if you were creating a service for veterinary.  You can create a struct that hold the pets name.  Then you can create a tested struct to hold information about cats specifically.  Golang is also smart enough to not have to use `&` of variables.    Here is a generic example:
+
+in golang you can group data types together to create a struct. Structs can also be nested with other struct. For example if you were creating a service for veterinary. You can create a struct that hold the pets name. Then you can create a tested struct to hold information about cats specifically. Golang is also smart enough to not have to use `&` of variables. Here is a generic example:
 
 [playground](https://play.golang.org/p/HuPP0Lz_inh)
 
@@ -1182,8 +1273,11 @@ Animal age: 10 Pet owner name: Steve
 The average life of a cat is: 15.
 ```
 
+---
+
 ### slice of sructs
-Many times you will need to create many structs that contain an unkown amount of structs.  The easiest way to accomplish this is a slice of structs.  Be careful using append of slices.  Appending a single element takes constant amortized time. More information can be found [wikipedia amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) and [wikipedia constant time](https://en.wikipedia.org/wiki/Time_complexity#Constant_time).
+
+Many times you will need to create many structs that contain an unkown amount of structs. The easiest way to accomplish this is a slice of structs. Be careful using append of slices. Appending a single element takes constant amortized time. More information can be found [wikipedia amortized analysis](https://en.wikipedia.org/wiki/Amortized_analysis) and [wikipedia constant time](https://en.wikipedia.org/wiki/Time_complexity#Constant_time).
 
 [playground](https://play.golang.org/p/ncGzPQXCMzO)
 
@@ -1237,8 +1331,11 @@ Welcome to the pet shop fluffy.  Your cat is 4 years old and the owner is Laura.
 Welcome to the pet shop keystone.  Your bird is 2 years old and the owner is Dan.
 ```
 
+---
+
 ### goroutine
-A goroutine is a lightweight thread managed by the go runtime.  Any func you can add `go` in front of the call and it will call this in a go thread.  We will sleep at the end so the output finishes.  This is only used for demo purposes.  In the next example I will show how to wait for all goroutine to finish.  You can see I call dostuff(7) but this func takes the longest to finish so its output is last.  Even though you call dostuff(3) last since it is ran in a goroutine it will finish first.  
+
+A goroutine is a lightweight thread managed by the go runtime. Any func you can add `go` in front of the call and it will call this in a go thread. We will sleep at the end so the output finishes. This is only used for demo purposes. In the next example I will show how to wait for all goroutine to finish. You can see I call dostuff(7) but this func takes the longest to finish so its output is last. Even though you call dostuff(3) last since it is ran in a goroutine it will finish first.
 
 [playground](https://play.golang.org/p/7a6KzSLjiqf)
 
@@ -1266,6 +1363,7 @@ func main() {
 	time.Sleep(time.Duration(15) * time.Second)
 }
 ```
+
 output:
 
 ```
@@ -1275,8 +1373,11 @@ finished running dostuff.  Slept 5 seconds.
 finished running dostuff.  Slept 7 seconds.
 ```
 
+---
+
 ### wait for all goroutines to finish
-goroutine support a sync.WaitGroup which will wait for all goroutines to finish.  This is very useful when you want to make sure ALL goroutines finish.
+
+goroutine support a sync.WaitGroup which will wait for all goroutines to finish. This is very useful when you want to make sure ALL goroutines finish.
 [playground](https://play.golang.org/p/MC9K9e5zJ92)
 
 ```
@@ -1311,6 +1412,7 @@ func main() {
 	fmt.Println("program completed.")
 }
 ```
+
 output:
 
 ```
@@ -1334,3 +1436,4 @@ dostuff 1: Finished
 program completed.
 ```
 
+---
